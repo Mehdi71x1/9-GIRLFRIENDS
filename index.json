@@ -1,5 +1,4 @@
-{
-  "girlfriends": [
+[
     {
       "name": "Himu",
       "age": "15",
@@ -63,6 +62,4 @@
       "town": "👉Dinajpur🇧🇩",
       "dialogue": "😭"
     }
-  ],
-  "appclose": "true"
-}
+  ]
