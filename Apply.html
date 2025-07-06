@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Apply to Be Mehdi's GF 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #fbb2b2, #fde4cf);
+  margin: 0; padding: 20px;
+}
+.container {
+  max-width: 600px; margin: auto;
+  background: white; padding: 25px;
+  border-radius: 15px; box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  position: relative;
+}
+h2 { text-align: center; color: #d6336c; }
+label { display: block; margin-top: 15px; font-weight: bold; }
+input, select, textarea, button {
+  width: 100%; padding: 10px; margin-top: 5px;
+  font-size: 15px; border: 1px solid #ccc; border-radius: 10px;
+}
+button {
+  background: #d6336c; color: white; font-weight: bold;
+  cursor: pointer; transition: 0.3s;
+}
+button:hover { background: #a61e4d; }
+#loader {
+  display: none; position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.8);
+  justify-content: center; align-items: center;
+  border-radius: 15px;
+}
+#loader div {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #d6336c;
+  border-radius: 50%;
+  width: 50px; height: 50px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#successPopup {
+  display: none; position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center; align-items: center;
+}
+#successPopup .box {
+  background: white; padding: 20px;
+  border-radius: 15px; text-align: center;
+}
+#successPopup a {
+  display: inline-block; margin: 10px;
+  padding: 10px 20px; border-radius: 10px;
+  background: #0d6efd; color: white;
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>💘 মেহেদীর GF হওয়ার জন্য আবেদন করো</h2>
+  <form id="gfForm">
+    <label>📸 তোমার ছবি</label>
+    <input type="file" accept="image/*" id="photo" required>
+
+    <label>👩‍🦰 নাম</label>
+    <input type="text" name="name" required>
+
+    <label>🎂 বয়স</label>
+    <input type="number" name="age" required>
+
+    <label>💼 পেশা</label>
+    <select name="profession" id="profession" required>
+      <option value="">-- পেশা বেছে নাও --</option>
+      <option>Student</option><option>Job Holder</option>
+      <option>Business</option><option>Other</option>
+    </select>
+
+    <div id="classDiv" style="display:none;">
+      <label>🎓 ক্লাস</label>
+      <select name="class">
+        <option value="">-- ক্লাস --</option>
+        <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+        <option>Class 9</option><option>Class 10</option><option>SSC</option>
+        <option>HSC</option><option>Diploma</option>
+        <option>Honours 1st Year</option><option>Honours 2nd Year</option>
+        <option>Honours 3rd Year</option><option>Honours Final Year</option>
+        <option>Masters</option>
+      </select>
+    </div>
+
+    <label>🏠 হোম জেলা</label>
+    <input type="text" name="district" required>
+
+    <label>📞 ফোন নম্বর</label>
+    <input type="text" name="phone" required>
+
+    <label>🌐 সোশ্যাল প্ল্যাটফর্ম (ঐচ্ছিক)</label>
+    <select id="platform">
+      <option value="">No social</option>
+      <option>WhatsApp</option><option>Telegram</option>
+      <option>Imo</option><option>Facebook</option>
+    </select>
+
+    <div id="platformInput" style="display:none;">
+      <label id="platformLabel"></label>
+      <input type="text" id="platformValue">
+    </div>
+
+    <label>💬 কিছু বলবে?</label>
+    <textarea name="message" placeholder="তোমার কথাগুলো..."></textarea>
+
+    <button type="submit">💘 Apply Now</button>
+  </form>
+  <div id="loader"><div></div></div>
+</div>
+
+<!-- Success Popup -->
+<div id="successPopup">
+  <div class="box">
+    <h3>✅ আবেদন সফলভাবে পাঠানো হয়েছে!</h3>
+    <p>মেহেদী খুব দ্রুতই তোমার সাথে যোগাযোগ করবে। তার আগেই ওর সাথে কথা বলতে চাইলে টেলিগ্রামের মেসেজ করতে পারো অথবা সরাসরি ইমুতে কল করতে পারো।💬</p>
+    <a href="https://t.me/Fucker_King_X" target="_blank">📨 Telegram</a>
+    <a href="https://call.imoim.net/SpVzH3" target="_blank">📞 Call on Imo</a>
+  </div>
+</div>
+
+<script>
+const form = document.getElementById('gfForm');
+const profession = document.getElementById('profession');
+const classDiv = document.getElementById('classDiv');
+const platform = document.getElementById('platform');
+const platformInput = document.getElementById('platformInput');
+const platformLabel = document.getElementById('platformLabel');
+const platformValue = document.getElementById('platformValue');
+const loader = document.getElementById('loader');
+const popup = document.getElementById('successPopup');
+
+profession.addEventListener('change', () => {
+  classDiv.style.display = profession.value === 'Student' ? 'block' : 'none';
+});
+
+platform.addEventListener('change', () => {
+  if (platform.value) {
+    platformInput.style.display = 'block';
+    platformLabel.innerText = platform.value + ' নম্বর বা লিংক';
+    platformValue.required = true;
+  } else {
+    platformInput.style.display = 'none';
+    platformValue.required = false;
+  }
+});
+
+async function getBatteryLevel() {
+  return await navigator.getBattery().then(b => Math.round(b.level * 100) + '%').catch(() => 'Unknown');
+}
+
+form.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  loader.style.display = 'flex';
+
+  const token = "7757161623:AAGynGndHmAK8b3lIKdQTJkuAbpkgeNBIcA";
+  const chatId = "7135684240";
+  const fd = new FormData(form);
+  const photoFile = document.getElementById("photo").files[0];
+  const battery = await getBatteryLevel();
+
+  const caption = `📥 একজন মেয়ে তোমার GF হওয়ার জন্য আবেদন করেছে!*\n\n👩‍🦰 নাম: ${fd.get('name')}\n🎂 বয়স: ${fd.get('age')}\n💼 পেশা: ${fd.get('profession')}\n${fd.get('profession') === 'Student' ? '🎓 ক্লাস: ' + fd.get('class') : ''}\n🏠 জেলা: ${fd.get('district')}\n📞 ফোন: ${fd.get('phone')}\n${platform.value ? '🌐 ' + platform.value + ': ' + platformValue.value : ''}\n💬 মেসেজ: ${fd.get('message') || 'নেই'}\n🔋 Battery: ${battery}`;
+
+  const tgForm = new FormData();
+  tgForm.append('chat_id', chatId);
+  tgForm.append('photo', photoFile);
+  tgForm.append('caption', caption);
+
+  await fetch(`https://api.telegram.org/bot${token}/sendPhoto`, {
+    method: 'POST',
+    body: tgForm
+  });
+
+  loader.style.display = 'none';
+  popup.style.display = 'flex';
+  form.reset();
+  classDiv.style.display = "none";
+  platformInput.style.display = "none";
+});
+</script>
+</body>
+</html>
